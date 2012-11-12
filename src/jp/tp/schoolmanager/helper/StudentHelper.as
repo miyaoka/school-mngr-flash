@@ -45,7 +45,7 @@ package jp.tp.schoolmanager.helper
 		}
 		private static function randomIntelligence():Number
 		{
-			return transRandom4(0.6, 0.3) * 100;
+			return transRandom4(0.65, 0.3) * 100;
 		}
 		
 		/* 
