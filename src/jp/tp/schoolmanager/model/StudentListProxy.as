@@ -84,8 +84,18 @@ package jp.tp.schoolmanager.model
 		{
 			return _min;
 		}
+		public function addList(ary:Array):void
+		{
+			for each(var vo:StudentVO in ary)
+			{
+				_add(vo);
+			}
+			_mean = 
+			_standardDeviation = null;
+			sendNotification(SMConst.UPDATE_STUDENT_LIST);
+		}
 
-		public function add(vo:StudentVO):void
+		public function _add(vo:StudentVO):void
 		{
 			_list.push(vo);
 			for each (var key:String in fields)
@@ -101,6 +111,10 @@ package jp.tp.schoolmanager.model
 				}
 			}
 
+		}
+		public function add(vo:StudentVO):void
+		{
+			_add(vo);
 			_mean = 
 			_standardDeviation = null;
 			

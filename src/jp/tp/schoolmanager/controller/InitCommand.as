@@ -19,7 +19,6 @@ package jp.tp.schoolmanager.controller
 			facade.registerCommand(SMConst.CALL_ADD_STUDENT, StudentCommand);
 			facade.registerCommand(SMConst.CALL_RAND_STUDENT_LIST, StudentCommand);
 			
-			sendNotification(SMConst.CALL_RAND_STUDENT_LIST, 100);
 			
 			
 //			facade.registerCommand(SMConst.CALL_ADD_LOG, AddLogCommand);
