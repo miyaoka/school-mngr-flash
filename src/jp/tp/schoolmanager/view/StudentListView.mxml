@@ -50,7 +50,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
-			<s:GridColumn dataField="strengthScore" headerText="身" labelFunction="{numformat}" width="40"  >
+			<s:GridColumn dataField="strengthScore" headerText="身偏" labelFunction="{numformat}" width="40"  >
 				<s:itemRenderer >
 					<fx:Component>
 						<s:DefaultGridItemRenderer textAlign="right" />
@@ -65,7 +65,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>		
-			<s:GridColumn dataField="looksScore" headerText="容" labelFunction="{numformat}" width="40">
+			<s:GridColumn dataField="looksScore" headerText="容偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
 						<s:DefaultGridItemRenderer textAlign="right" />
@@ -80,7 +80,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
-			<s:GridColumn dataField="socialityScore" headerText="社" labelFunction="{numformat}" width="40">
+			<s:GridColumn dataField="socialityScore" headerText="社偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
 						<s:DefaultGridItemRenderer textAlign="right" />
@@ -96,7 +96,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
-			<s:GridColumn dataField="wealthScore" headerText="財" labelFunction="{numformat}" width="40">
+			<s:GridColumn dataField="wealthScore" headerText="財偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
 						<s:DefaultGridItemRenderer textAlign="right" />
@@ -111,7 +111,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>					
-			<s:GridColumn dataField="intelligenceScore" headerText="学" labelFunction="{numformat}" width="40">
+			<s:GridColumn dataField="intelligenceScore" headerText="学偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
 						<s:DefaultGridItemRenderer textAlign="right" />
