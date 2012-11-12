@@ -5,7 +5,8 @@ package jp.tp.schoolmanager.helper
 	public class StudentHelper
 	{
 		private static const charcodeA:Number = "A".charCodeAt(0);
-		private static var num:Number = 0;
+		
+		public static var num:Number = 0;
 		public static function random():StudentVO
 		{
 			var vo:StudentVO = new StudentVO();
