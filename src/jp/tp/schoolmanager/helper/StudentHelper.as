@@ -41,7 +41,7 @@ package jp.tp.schoolmanager.helper
 		}
 		private static function randomWealth():Number
 		{
-			return Math.ceil(transRandom4(0.05, 0.1) * 20) * 1000;
+			return Math.ceil(transRandom4(0.3, 0.3) * transRandom4(0.5, 0.5) * 20) * 1000;
 		}
 		private static function randomIntelligence():Number
 		{
