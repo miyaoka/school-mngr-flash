@@ -31,11 +31,12 @@ package jp.tp.schoolmanager.view
 		private function initView():void
 		{
 			view.addEventListener(MainView.STUDENT_LIST_RELOAD, onReload);
+			view.geneNum = 20;
 
 		}	
 		private function onReload(e:Event):void
 		{
-			sendNotification(SMConst.CALL_RAND_STUDENT_LIST, Math.random() * 100 + 20);
+			sendNotification(SMConst.CALL_RAND_STUDENT_LIST, view.geneNum);
 		}
 		override public function listNotificationInterests():Array
 		{
