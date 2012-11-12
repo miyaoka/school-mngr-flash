@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:DataGrid xmlns:fx="http://ns.adobe.com/mxml/2009"
+			xmlns:s="library://ns.adobe.com/flex/spark"
+			xmlns:mx="library://ns.adobe.com/flex/mx"
+			width="100%" requestedRowCount="4" creationComplete="init(event)">
+	<fx:Script>
+		<![CDATA[
+			import jp.tp.schoolmanager.SMFacade;
+			import jp.tp.schoolmanager.vo.StudentVO;
+			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			import mx.utils.ObjectUtil;
+			
+			protected function init(event:FlexEvent):void
+			{
+				SMFacade.getInstance().registerMediator(new StudentListTotalViewMediator(this));
+				dataProvider = ac;
+			}
+			private function numformat(item:Object, column:GridColumn):String
+			{
+				return nft.format(item[column.dataField]);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+		<s:ArrayCollection id="ac" />
+		<s:NumberFormatter id="nft" 
+						   fractionalDigits="1"/>
+	</fx:Declarations>
+	<s:columns>
+		<s:ArrayList>
+			<s:GridColumn dataField="name" headerText="種類"></s:GridColumn>
+			<s:GridColumn dataField="strength" headerText="身長" labelFunction="{numformat}" >
+				<s:itemRenderer>
+					<fx:Component>
+						<s:DefaultGridItemRenderer textAlign="right" />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="looks" headerText="容姿" labelFunction="{numformat}">
+				<s:itemRenderer>
+					<fx:Component>
+						<s:DefaultGridItemRenderer textAlign="right" />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>				
+			<s:GridColumn dataField="sociality" headerText="社交性" labelFunction="{numformat}">
+				<s:itemRenderer>
+					<fx:Component>
+						<s:DefaultGridItemRenderer textAlign="right" />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="wealth" headerText="財力" labelFunction="{numformat}">
+				<s:itemRenderer>
+					<fx:Component>
+						<s:DefaultGridItemRenderer textAlign="right" />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="intelligence" headerText="学力" labelFunction="{numformat}">
+				<s:itemRenderer>
+					<fx:Component>
+						<s:DefaultGridItemRenderer textAlign="right" />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>		
+		</s:ArrayList>
+	</s:columns>
+</s:DataGrid>

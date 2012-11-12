@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:mx="library://ns.adobe.com/flex/mx"
+		 xmlns:view="jp.tp.schoolmanager.view.*"
+		 width="10%" height="100%" creationComplete="init(event)">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+
+	<fx:Script>
+		<![CDATA[
+			import jp.tp.schoolmanager.SMFacade;
+			
+			import mx.events.FlexEvent;
+			public static const STUDENT_LIST_RELOAD:String = "studentListReload";
+			
+			protected function onReload(event:FlexEvent):void
+			{
+				dispatchEvent(new Event(STUDENT_LIST_RELOAD));
+			}
+			
+			protected function init(event:FlexEvent):void
+			{
+				SMFacade.getInstance().registerMediator(new MainViewMediator(this));
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<s:Button label="再生成" buttonDown="onReload(event)"/>
+	<view:StudentListTotalView />
+	<mx:HDividedBox width="100%" height="100%">
+		<s:VGroup width="100%" height="100%">
+			<view:StudentListView/>
+		</s:VGroup>
+		<!--
+
+		<s:Group id="studentsCasteGp" width="100%" height="100%">
+		</s:Group>
+		-->
+		
+	</mx:HDividedBox>	
+</s:Group>

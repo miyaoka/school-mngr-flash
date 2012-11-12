@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   creationComplete="init(event)" xmlns:view="jp.tp.schoolmanager.view.*">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+
+	<fx:Script>
+		<![CDATA[
+			import jp.tp.schoolmanager.SMFacade;
+			import jp.tp.schoolmanager.constants.SMConst;
+			import jp.tp.schoolmanager.controller.InitCommand;
+			
+			import mx.events.FlexEvent;
+			
+			protected function init(event:FlexEvent):void
+			{
+				SMFacade.getInstance().registerCommand(SMConst.CALL_INIT, InitCommand);
+				SMFacade.getInstance().sendNotification(SMConst.CALL_INIT);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<s:BorderContainer width="100%" height="100%" backgroundColor="#E2F7D6" borderVisible="false">
+		<s:layout>
+			<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>
+		</s:layout>
+		<view:MainView width="100%" height="100%">
+			
+		</view:MainView>
+	</s:BorderContainer>
+</s:Application>
