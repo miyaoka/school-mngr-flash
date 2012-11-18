@@ -25,6 +25,12 @@
 				SMFacade.getInstance().registerMediator(new MainViewMediator(this));
 			}
 			
+			protected function numericstepper1_keyDownHandler(event:KeyboardEvent):void
+			{
+				if(! (event.keyCode == Keyboard.ENTER) ) return;
+				dispatchEvent(new Event(STUDENT_LIST_RELOAD));
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -34,7 +40,7 @@
 	<mx:HDividedBox height="100%" width="100%">
 		<s:VGroup width="400">
 			<s:HGroup verticalAlign="middle">
-				<s:NumericStepper value="@{geneNum}" maximum="100000" textAlign="right" />
+				<s:NumericStepper value="@{geneNum}" maximum="100000" textAlign="right" keyDown="numericstepper1_keyDownHandler(event)" />
 				<s:Label text="件"/>
 				<s:Button label="生成" buttonDown="onReload(event)"/>
 			</s:HGroup>
