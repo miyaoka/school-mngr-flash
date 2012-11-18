@@ -6,6 +6,7 @@
 	<s:layout>
 		<s:VerticalLayout/>
 	</s:layout>
+	<fx:Style source="school_manager.css"/>
 
 	<fx:Script>
 		<![CDATA[
