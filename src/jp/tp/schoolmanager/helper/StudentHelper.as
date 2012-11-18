@@ -1,5 +1,6 @@
 package jp.tp.schoolmanager.helper
 {
+	import jp.tp.schoolmanager.constants.NameList;
 	import jp.tp.schoolmanager.vo.StudentVO;
 
 	public class StudentHelper
@@ -10,16 +11,19 @@ package jp.tp.schoolmanager.helper
 		public static function random():StudentVO
 		{
 			var vo:StudentVO = new StudentVO();
-			var len:Number = Math.random() * 7 + 3;
-			var name:String = "";
-			while(len-- > 0)
-			{
-				name = name + randomStr();
-			}
-			vo.name = name;
+			
+			//lastname
+			vo.lastName = NameList.familyNameList[Math.floor(Math.random() * NameList.familyNameList.length)];
+
+			//firstname
+			vo.firstName = 
+//				(vo.gender == 0) 
+				false
+				? NameList.femaleNameList[Math.floor(Math.random() * NameList.femaleNameList.length)]
+				: NameList.maleNameList[Math.floor(Math.random() * NameList.maleNameList.length)];
+			
 			num++;
 			vo.id = num;
-//			vo.name = num.toString();
 			vo.intelligence = randomIntelligence();
 			vo.looks = randomNum();
 			vo.sociality = randomNum();
