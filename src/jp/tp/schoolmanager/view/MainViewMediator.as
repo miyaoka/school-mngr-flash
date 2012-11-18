@@ -31,8 +31,8 @@ package jp.tp.schoolmanager.view
 		private function initView():void
 		{
 			view.addEventListener(MainView.STUDENT_LIST_RELOAD, onReload);
-			view.geneNum = 20;
-
+			view.geneNum = 30;
+			
 		}	
 		private function onReload(e:Event):void
 		{
