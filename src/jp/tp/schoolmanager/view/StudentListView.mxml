@@ -27,7 +27,7 @@
 			private function numTotal(item:Object, column:GridColumn):String
 			{
 				var vo:StudentVO = item as StudentVO;
-				return nft.format((vo.intelligence + vo.looks + vo.sociality + vo.strength + vo.wealth) / 5);
+				return nft.format((vo.intelligenceScore + vo.looksScore + vo.socialityScore + vo.strengthScore + vo.wealthScore) / 5);
 			}
 			private function numCompare(a:Object, b:Object, column:GridColumn):int
 			{
@@ -144,7 +144,6 @@
 			</s:GridColumn>					
 			-->
 			
-			<!--
 			<s:GridColumn headerText="平均" labelFunction="{numTotal}">
 				<s:itemRenderer>
 					<fx:Component>
@@ -152,7 +151,6 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>				
-			-->
 		</s:ArrayList>
 	</s:columns>
 </s:DataGrid>
