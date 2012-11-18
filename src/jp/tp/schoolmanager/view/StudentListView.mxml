@@ -4,6 +4,7 @@
 			xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" creationComplete="init(event)"
 			xmlns:view="jp.tp.schoolmanager.view.*"
 			skinClass="jp.tp.schoolmanager.view.skin.SMDataGridSkin"
+			alternatingRowColors="[0xeeeedd,0xddddcc]"
 			>
 	<fx:Script>
 		<![CDATA[
