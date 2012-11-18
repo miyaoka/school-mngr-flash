@@ -51,7 +51,14 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
-			<s:GridColumn dataField="name" headerText="名前">
+			<s:GridColumn dataField="lastName" headerText="苗字">
+				<s:itemRenderer>
+					<fx:Component>
+						<view:StudentItemRenderer />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="firstName" headerText="名前">
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer />
