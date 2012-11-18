@@ -65,6 +65,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="strengthScore" headerText="身偏" labelFunction="{numformat}" width="40"  >
 				<s:itemRenderer >
 					<fx:Component>
@@ -72,6 +73,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 			
 			<s:GridColumn dataField="looks" headerText="容姿" labelFunction="{numformat}">
 				<s:itemRenderer>
@@ -80,6 +82,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>		
+			<!--
 			<s:GridColumn dataField="looksScore" headerText="容偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
@@ -87,6 +90,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>				
+			-->
 			
 			<s:GridColumn dataField="sociality" headerText="社交性" labelFunction="{numformat}">
 				<s:itemRenderer>
@@ -95,6 +99,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="socialityScore" headerText="社偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
@@ -102,6 +107,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 			
 			
 			<s:GridColumn dataField="wealth" headerText="財力" labelFunction="{numformat}">
@@ -111,6 +117,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="wealthScore" headerText="財偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
@@ -118,6 +125,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 
 			<s:GridColumn dataField="intelligence" headerText="学力" labelFunction="{numformat}">
 				<s:itemRenderer>
@@ -126,6 +134,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>					
+			<!--
 			<s:GridColumn dataField="intelligenceScore" headerText="学偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
@@ -133,6 +142,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>					
+			-->
 			
 			<!--
 			<s:GridColumn headerText="平均" labelFunction="{numTotal}">
