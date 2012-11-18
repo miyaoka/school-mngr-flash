@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:GridItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
+					xmlns:s="library://ns.adobe.com/flex/spark"
+					xmlns:mx="library://ns.adobe.com/flex/mx" >
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
+			import spark.filters.GlowFilter;
+			
+			[Bindable]
+			private var label2:int = -1;
+			
+			private static const scValue:Array = 
+				[
+					/*
+					30.4,
+					38.5,
+					42.4,
+					45.5,
+					48.1,
+					
+					50.0,
+
+					51.9,
+					54.5,
+					57.6,
+					61.5,
+					69.6
+					*/
+					30.4,
+					37.2,
+					40.7,
+					44,
+					46.8,
+					
+					50,
+					
+					53.2,
+					56,
+					59.3,
+					62.8,
+					69.6,					
+				];
+			private static const scLabel:ArrayCollection =
+				new ArrayCollection(
+				[
+					"F",
+					"E-",
+					"E+",
+					"D-",
+					"D+",
+					
+					"C-",
+					
+					"C+",
+					"B-",
+					"B+",
+					"A-",
+					"A+",
+
+					"S"
+				]);
+			private static const scColor:ArrayCollection =
+				new ArrayCollection(
+				[
+					0x666666,
+					
+					0x999999,
+					0xcc9999,
+					
+					0x9999cc,
+					0xcc99cc,
+					
+					0x66cccc,
+					0x99cccc,
+					
+					0x66cc66,
+					0x99cc66,
+					
+					0xcc6633,
+					0xff6633,
+					
+					0xff9900,
+			]);
+			
+			override public function set data(value:Object):void {
+				super.data = value;
+				if(!value || !column.dataField) return;
+				var code:String = value[column.dataField];
+				var sc:String = column.dataField + "Score";
+				if(!value.hasOwnProperty(sc)) return;
+				var scNum:Number = Number(value[sc]);
+				
+				var i:int = 0;
+				for(i = 0; i < scValue.length; i++)
+				{
+					if(scNum < scValue[i])
+					{
+						break;
+					}
+				}
+				
+				label2 = i;
+				return;
+				var colIndex:int = column.columnIndex;
+			}			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
+	</fx:Declarations>
+	<!--
+	<s:Rect left="0" right="0" top="0" bottom="0">
+		<s:fill>
+			<s:SolidColor color="#AACEE1">
+				
+			</s:SolidColor>
+		</s:fill>
+	</s:Rect>
+	<s:DropShadowFilter blurX="2" blurY="2" distance="1" alpha=".25" />
+	<s:filters>
+		<s:GlowFilter color="0xffffff" alpha="1.0" blurX="4" blurY="4" strength="4" />
+	</s:filters>
+	-->
+	<!--
+	<s:RichText left="2" right="2" top="0" bottom="0">
+		<s:textFlow>
+			
+			<s:TextFlow>
+				<s:span>{label}</s:span>
+				<s:span fontSize="20">{label2}</s:span>
+			</s:TextFlow>
+		</s:textFlow>
+	</s:RichText>
+	filters="{[     new spark.filters.GlowFilter(0xffffff, 1.0, 2, 2, 5)     ]}"
+	
+	-->
+	<s:Label right="32" textAlign="right" bottom="0" color="0x666633" fontWeight="bold"
+			 filters="{[     new spark.filters.GlowFilter(0xffffff, 1.0, 4, 4, 4)     ]}"
+			 paddingBottom="0" paddingTop="4" text="{label}">
+		
+	</s:Label>
+	<s:Label right="0" bottom="0" width="28" color="{scColor.getItemAt(label2) as uint}"
+			 filters="{[     new spark.filters.GlowFilter(0xffffff, 1, 2, 2, 10)     ]}"
+			 fontSize="18" fontWeight="bold" paddingBottom="0" 
+			 paddingTop="4" text="{scLabel.getItemAt(label2)}" textAlign="left">
+		
+	</s:Label>
+</s:GridItemRenderer>
