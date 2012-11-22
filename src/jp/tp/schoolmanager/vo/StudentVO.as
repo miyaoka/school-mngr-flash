@@ -5,6 +5,8 @@ package jp.tp.schoolmanager.vo
 	{
 		public var id:Number;
 		public var name:String;
+		public var firstName:String;
+		public var lastName:String;
 		
 		public var strength:Number;
 		public var looks:Number;

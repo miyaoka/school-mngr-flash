@@ -25,27 +25,29 @@
 				SMFacade.getInstance().registerMediator(new MainViewMediator(this));
 			}
 			
+			protected function numericstepper1_keyDownHandler(event:KeyboardEvent):void
+			{
+				if(! (event.keyCode == Keyboard.ENTER) ) return;
+				dispatchEvent(new Event(STUDENT_LIST_RELOAD));
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
 		<fx:uint id="geneNum"/>
 		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
 	</fx:Declarations>
-	<s:HGroup verticalAlign="middle">
-		<s:NumericStepper value="@{geneNum}" maximum="100000" textAlign="right" />
-		<s:Label text="件"/>
-		<s:Button label="生成" buttonDown="onReload(event)"/>
-	</s:HGroup>
-	<view:StudentListTotalView />
-	<mx:HDividedBox width="100%" height="100%">
-		<s:VGroup width="100%" height="100%">
-			<view:StudentListView/>
+	<mx:HDividedBox height="100%" width="100%">
+		<s:VGroup width="400">
+			<s:HGroup verticalAlign="middle">
+				<s:NumericStepper value="@{geneNum}" maximum="100000" textAlign="right" keyDown="numericstepper1_keyDownHandler(event)" />
+				<s:Label text="件"/>
+				<s:Button label="生成" buttonDown="onReload(event)"/>
+			</s:HGroup>
+			<view:StudentListTotalView skinClass="jp.tp.schoolmanager.view.skin.SMDataGridSkin"/>			
 		</s:VGroup>
-		<!--
-
-		<s:Group id="studentsCasteGp" width="100%" height="100%">
-		</s:Group>
-		-->
+		<view:StudentListView />
+	</mx:HDividedBox>
 		
-	</mx:HDividedBox>	
+		
 </s:Group>

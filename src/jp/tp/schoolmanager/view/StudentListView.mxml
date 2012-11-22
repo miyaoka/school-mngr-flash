@@ -2,6 +2,9 @@
 <s:DataGrid xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			xmlns:s="library://ns.adobe.com/flex/spark" 
 			xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" creationComplete="init(event)"
+			xmlns:view="jp.tp.schoolmanager.view.*"
+			skinClass="jp.tp.schoolmanager.view.skin.SMDataGridSkin"
+			alternatingRowColors="[0xeeeedd,0xddddcc]"
 			>
 	<fx:Script>
 		<![CDATA[
@@ -24,7 +27,7 @@
 			private function numTotal(item:Object, column:GridColumn):String
 			{
 				var vo:StudentVO = item as StudentVO;
-				return nft.format((vo.intelligence + vo.looks + vo.sociality + vo.strength + vo.wealth) / 5);
+				return nft.format((vo.intelligenceScore + vo.looksScore + vo.socialityScore + vo.strengthScore + vo.wealthScore) / 5);
 			}
 			private function numCompare(a:Object, b:Object, column:GridColumn):int
 			{
@@ -41,93 +44,120 @@
 	</fx:Declarations>
 	<s:columns>
 		<s:ArrayList>
-			<s:GridColumn dataField="id" headerText="ID"></s:GridColumn>
-			<s:GridColumn dataField="name" headerText="名前"></s:GridColumn>
+			<s:GridColumn dataField="id" headerText="ID">
+				<s:itemRenderer>
+					<fx:Component>
+						<view:StudentItemRenderer />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="lastName" headerText="苗字">
+				<s:itemRenderer>
+					<fx:Component>
+						<view:StudentItemRenderer />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
+			<s:GridColumn dataField="firstName" headerText="名前">
+				<s:itemRenderer>
+					<fx:Component>
+						<view:StudentItemRenderer />
+					</fx:Component>
+				</s:itemRenderer>
+			</s:GridColumn>
 			<s:GridColumn dataField="strength" headerText="身長" labelFunction="{numformat}" >
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer  />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="strengthScore" headerText="身偏" labelFunction="{numformat}" width="40"  >
 				<s:itemRenderer >
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 			
 			<s:GridColumn dataField="looks" headerText="容姿" labelFunction="{numformat}">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>		
+			<!--
 			<s:GridColumn dataField="looksScore" headerText="容偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>				
+			-->
 			
 			<s:GridColumn dataField="sociality" headerText="社交性" labelFunction="{numformat}">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="socialityScore" headerText="社偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 			
 			
 			<s:GridColumn dataField="wealth" headerText="財力" labelFunction="{numformat}">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			<!--
 			<s:GridColumn dataField="wealthScore" headerText="財偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
+			-->
 
 			<s:GridColumn dataField="intelligence" headerText="学力" labelFunction="{numformat}">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>					
+			<!--
 			<s:GridColumn dataField="intelligenceScore" headerText="学偏" labelFunction="{numformat}" width="40">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>					
+			-->
 			
-			<!--
 			<s:GridColumn headerText="平均" labelFunction="{numTotal}">
 				<s:itemRenderer>
 					<fx:Component>
-						<s:DefaultGridItemRenderer textAlign="right" />
+						<view:StudentItemRenderer textAlign="right" />
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>				
-			-->
 		</s:ArrayList>
 	</s:columns>
 </s:DataGrid>
