@@ -23,5 +23,11 @@ package jp.tp.schoolmanager.vo
 		public function StudentVO()
 		{
 		}
+
+		public function get fullName():String
+		{
+			return lastName + " " + firstName;
+		}
+
 	}
 }
