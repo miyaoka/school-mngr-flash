@@ -13,12 +13,13 @@ package jp.tp.schoolmanager.helper
 			var vo:StudentVO = new StudentVO();
 			
 			//lastname
-			vo.lastName = NameList.familyNameList[Math.floor(Math.random() * NameList.familyNameList.length)];
+			vo.lastName = NameList.familyNameList[Math.floor(Math.random() * Math.random() * Math.random() * NameList.familyNameList.length)];
 
 			//firstname
 			vo.firstName = 
 //				(vo.gender == 0) 
 				false
+//				Math.random() > 0.5
 				? NameList.femaleNameList[Math.floor(Math.random() * NameList.femaleNameList.length)]
 				: NameList.maleNameList[Math.floor(Math.random() * NameList.maleNameList.length)];
 			
@@ -37,22 +38,34 @@ package jp.tp.schoolmanager.helper
 		}
 		private static function randomNum():Number
 		{
-			return minmax(normalDistribution(0.5, 0.15)) * 100;
+			return minmax(normalDistribution(0.5, 0.125)) * 100;
 			return transRandom4(0.5, 0.3) * 100;
 		}
 		private static function randomTall():Number
 		{
-			return normalDistribution(170, 5.8);
+			return normalDistribution(170, 7);
 			return transRandom4(0.5, 0.3) * 40 + 145;
 		}
 		private static function randomWealth():Number
 		{
+			return Math.ceil(
+				Math.sqrt(-2 * Math.log(Math.random())) // 0~1~5 mean 1.25
+				* 4000 / 1000
+			) * 1000;
 			return Math.floor((Math.max(normalDistribution(3000, 500, 10, 1), 1000)) / 1000) * 1000;
 //			return Math.ceil(transRandom4(0.3, 0.3) * transRandom4(0.5, 0.5) * 20) * 1000;
 		}
 		private static function randomIntelligence():Number
 		{
-			return minmax(normalDistribution(0.6, 0.2)) * 100;
+			var iq:Number = normalDistribution(0.6, 0.12);
+			return minmax(iq) * 100;
+			
+			var total:Number = 0;
+			for(var i:int = 0; i < 5; i++)
+			{
+				total += minmax(iq + (Math.random() - 0.5) * 0.2);
+			}
+			return total * 100;
 //			return transRandom4(0.65, 0.3) * 100;
 		}
 		
@@ -96,8 +109,9 @@ package jp.tp.schoolmanager.helper
 		private static function normalDistribution(mean:Number = 0.5, sd:Number= 0.1, over:Number = 1, under:Number = 1):Number
 		{
 			//独立した乱数2つ
-			var r1:Number = Math.random();
-			var r2:Number = Math.random();
+			var r1:Number = 1 - Math.random(); // 0 < x <= 1
+			var r2:Number = Math.random(); // 0 <= x < 1
+			
 						
 			//Box-Muller's method
 			return sd 
