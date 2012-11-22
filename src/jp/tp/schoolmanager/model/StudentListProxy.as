@@ -30,7 +30,7 @@ package jp.tp.schoolmanager.model
 		
 		public function get list():Array
 		{
-			return _list.concat();
+			return _list;
 		}
 		/**
 		 * 平均値
@@ -125,6 +125,10 @@ package jp.tp.schoolmanager.model
 		}
 		public function clear():void
 		{
+			for (var i:int = 0; i < _list.length; i++)
+			{
+				delete _list[i];
+			}
 			_list = [];
 			
 			_total = new StudentVO();
