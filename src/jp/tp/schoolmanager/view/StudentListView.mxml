@@ -5,6 +5,7 @@
 			xmlns:view="jp.tp.schoolmanager.view.*"
 			skinClass="jp.tp.schoolmanager.view.skin.SMDataGridSkin"
 			alternatingRowColors="[0xeeeedd,0xddddcc]"
+			dataTipFunction="buildToolTip"
 			>
 	<fx:Script>
 		<![CDATA[
@@ -33,7 +34,10 @@
 			{
 				return ObjectUtil.numericCompare(Number((a as StudentVO).name), Number((b as StudentVO).name));
 			}
-			
+			private function buildToolTip(item:Object, column:GridColumn):String
+			{
+				return nft.format(item[column.dataField + "Score"]);
+			}			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -58,7 +62,7 @@
 					</fx:Component>
 				</s:itemRenderer>
 			</s:GridColumn>
-			<s:GridColumn dataField="strength" headerText="身長" labelFunction="{numformat}" >
+			<s:GridColumn dataField="strength" headerText="身長" labelFunction="{numformat}" showDataTips="true" >
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer  />
@@ -75,7 +79,7 @@
 			</s:GridColumn>
 			-->
 			
-			<s:GridColumn dataField="looks" headerText="容姿" labelFunction="{numformat}">
+			<s:GridColumn dataField="looks" headerText="容姿" labelFunction="{numformat}" showDataTips="true">
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer textAlign="right" />
@@ -92,7 +96,7 @@
 			</s:GridColumn>				
 			-->
 			
-			<s:GridColumn dataField="sociality" headerText="社交性" labelFunction="{numformat}">
+			<s:GridColumn dataField="sociality" headerText="社交性" labelFunction="{numformat}" showDataTips="true">
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer textAlign="right" />
@@ -110,7 +114,7 @@
 			-->
 			
 			
-			<s:GridColumn dataField="wealth" headerText="財力" labelFunction="{numformat}">
+			<s:GridColumn dataField="wealth" headerText="財力" labelFunction="{numformat}" showDataTips="true">
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer textAlign="right" />
@@ -127,7 +131,7 @@
 			</s:GridColumn>
 			-->
 
-			<s:GridColumn dataField="intelligence" headerText="学力" labelFunction="{numformat}">
+			<s:GridColumn dataField="intelligence" headerText="学力" labelFunction="{numformat}" showDataTips="true">
 				<s:itemRenderer>
 					<fx:Component>
 						<view:StudentItemRenderer textAlign="right" />
