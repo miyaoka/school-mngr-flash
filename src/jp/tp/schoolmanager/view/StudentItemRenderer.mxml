@@ -31,7 +31,7 @@
 					57.6,
 					61.5,
 					69.6
-					*/
+					
 					30.4,
 					37.2,
 					40.7,
@@ -44,48 +44,103 @@
 					56,
 					59.3,
 					62.8,
-					69.6,					
+					69.6,	
+					*/
+					
+					/*
+					22,
+					
+					26,
+					30,
+					34,
+					38,
+					42,
+					46,
+					
+					50.0,
+					
+					54,
+					
+					58,
+					62,
+					66,
+					70,
+					74,
+					78		
+					*/
+					
+					15,
+					
+					20,
+					25,
+					30,
+					35,
+					40,
+					45,
+
+					50,
+					
+					55,
+					60,
+					65,
+					70,
+					75,
+					80,
+					85
+					
 				];
 			private static const scLabel:ArrayCollection =
 				new ArrayCollection(
 				[
+					"G",
+					
 					"F",
-					"E-",
-					"E+",
-					"D-",
-					"D+",
+					"F",
+					"E",
+					"E",
+					"D",
+					"D",
 					
-					"C-",
+					"C",
 					
-					"C+",
-					"B-",
-					"B+",
-					"A-",
-					"A+",
-
-					"S"
+					"C",
+					"B",
+					"B",
+					"A",
+					"A",
+					"S",
+					"S",
+					
+					"SS"
 				]);
 			private static const scColor:ArrayCollection =
 				new ArrayCollection(
 				[
+					0x333333,
+					
+					0x666666,
 					0x666666,
 					
 					0x999999,
-					0xcc9999,
+					0x999999,
 					
 					0x9999cc,
-					0xcc99cc,
+					0x9999cc,
 					
 					0x66cccc,
-					0x99cccc,
+					0x66cccc,
 					
 					0x66cc66,
-					0x99cc66,
+					0x66cc66,
 					
 					0xcc6633,
-					0xff6633,
+					0xcc6633,
 					
 					0xff9900,
+					0xff9900,
+
+					0xffcc00
+
 			]);
 			
 			override public function set data(value:Object):void {

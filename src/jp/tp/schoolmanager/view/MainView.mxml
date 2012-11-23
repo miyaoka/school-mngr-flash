@@ -40,7 +40,7 @@
 	<mx:HDividedBox height="100%" width="100%">
 		<s:VGroup width="400">
 			<s:HGroup verticalAlign="middle">
-				<s:NumericStepper value="@{geneNum}" maximum="100000" textAlign="right" keyDown="numericstepper1_keyDownHandler(event)" />
+				<s:NumericStepper value="@{geneNum}" maximum="1000000" textAlign="right" keyDown="numericstepper1_keyDownHandler(event)" />
 				<s:Label text="件"/>
 				<s:Button label="生成" buttonDown="onReload(event)"/>
 			</s:HGroup>
