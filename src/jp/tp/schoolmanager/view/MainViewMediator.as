@@ -5,6 +5,7 @@ package jp.tp.schoolmanager.view
 	
 	import jp.tp.schoolmanager.SMFacade;
 	import jp.tp.schoolmanager.constants.SMConst;
+	import jp.tp.puremvc.ViewMediator;
 	import jp.tp.schoolmanager.model.StudentListProxy;
 	import jp.tp.schoolmanager.model.StudentProxy;
 	import jp.tp.schoolmanager.vo.StudentVO;
@@ -12,28 +13,19 @@ package jp.tp.schoolmanager.view
 	import org.puremvc.as3.interfaces.INotification;
 	import org.puremvc.as3.patterns.mediator.Mediator;
 	
-	public class MainViewMediator extends Mediator
+	public class MainViewMediator extends ViewMediator
 	{
-		public static const NAME:String = "MainViewMediator";
+		public static const NAME:String = "MainView";
 		public function MainViewMediator(view:Object)
 		{
-			super(NAME, view);
-			initView();
-		}
-		public static function getInstance():MainViewMediator
-		{
-			return SMFacade.getInstance().retrieveMediator(NAME) as MainViewMediator;
+			super(view);
+			view.addEventListener(MainView.STUDENT_LIST_RELOAD, onReload);
+			view.geneNum = 30;
 		}
 		private function get view():MainView
 		{
 			return viewComponent as MainView;
 		}
-		private function initView():void
-		{
-			view.addEventListener(MainView.STUDENT_LIST_RELOAD, onReload);
-			view.geneNum = 30;
-			
-		}	
 		private function onReload(e:Event):void
 		{
 			sendNotification(SMConst.CALL_RAND_STUDENT_LIST, view.geneNum);
