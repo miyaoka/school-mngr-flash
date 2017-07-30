@@ -4,8 +4,10 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   creationComplete="init(event)" xmlns:view="jp.tp.schoolmanager.view.*">
 	<s:layout>
-		<s:VerticalLayout/>
+		<s:BasicLayout/>
 	</s:layout>
+	<fx:Style source="school_manager.css"/>
+	<fx:Style source="window_manager.css"/>
 
 	<fx:Script>
 		<![CDATA[
@@ -26,6 +28,7 @@
 	<fx:Declarations>
 		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
 	</fx:Declarations>
+	<view:WindowContainerView width="100%" height="100%"/>
 	<s:BorderContainer width="100%" height="100%" backgroundColor="#E2F7D6" borderVisible="false">
 		<s:layout>
 			<s:VerticalLayout paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"/>

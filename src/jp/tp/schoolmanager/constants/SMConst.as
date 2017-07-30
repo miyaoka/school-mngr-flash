@@ -13,5 +13,7 @@ package jp.tp.schoolmanager.constants
 		public static const FAILURE_LOAD_USER_CONF:String = "failureLoadUserConf";
 		public static const UPDATE_LOG:String = "updateLog";
 
+		public static const CALL_OPEN_STUDENT_LIST_WINDOW:String = "callOpenStudentListWindow";
+		public static const CALL_OPEN_STUDENT_EDIT_WINDOW:String = "callOpenStudentEditWindow";
 	}
 }

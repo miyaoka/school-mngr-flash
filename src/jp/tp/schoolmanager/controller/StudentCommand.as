@@ -26,11 +26,14 @@ package jp.tp.schoolmanager.controller
 					break;
 				case SMConst.CALL_RAND_STUDENT_LIST:
 					px.clear();
+					StudentHelper.num = 0;
 					var i:Number = Number(n.getBody());
+					var list:Array = [];
 					while(i-- > 0)
 					{
-						px.add(StudentHelper.random());
+						list.push(StudentHelper.random());
 					}
+					px.addList(list);
 					break;
 			}
 		}

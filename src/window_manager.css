@@ -1,0 +1,22 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace flashdan "net.flashdan.containers.customtitlewindow.*";
+
+flashdan|CustomTitleWindow {
+    skin-class: ClassReference("net.flashdan.containers.customtitlewindow.skins.CustomTitleWindowSkin");
+    resizeCursorHorizontalSkin: Embed(source="/net/flashdan/containers/customtitlewindow/assets/resizeCursorH.gif");
+    resizeCursorHorizontalXOffset: -10;    
+    resizeCursorHorizontalYOffset: -10;    
+    resizeCursorVerticalSkin: Embed(source="/net/flashdan/containers/customtitlewindow/assets/resizeCursorV.gif");
+    resizeCursorVerticalXOffset: -10;
+    resizeCursorVerticalYOffset: -10;
+    resizeCursorTopLeftBottomRightSkin: Embed(source="/net/flashdan/containers/customtitlewindow/assets/resizeCursorTLBR.gif");
+    resizeCursorTopLeftBottomRightXOffset: -10;
+    resizeCursorTopLeftBottomRightYOffset: -10;
+    resizeCursorTopRightBottomLeftSkin: Embed(source="/net/flashdan/containers/customtitlewindow/assets/resizeCursorTRBL.gif");
+    resizeCursorTopRightBottomLeftXOffset: -10;
+    resizeCursorTopRightBottomLeftYOffset: -10;
+    cornerHandleSize: 10;
+    edgeHandleSize: 4;
+}

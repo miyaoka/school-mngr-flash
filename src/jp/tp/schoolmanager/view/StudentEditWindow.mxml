@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customtitlewindow:CustomTitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+									 xmlns:s="library://ns.adobe.com/flex/spark"
+									 xmlns:mx="library://ns.adobe.com/flex/mx"
+									 xmlns:customtitlewindow="net.flashdan.containers.customtitlewindow.*"
+									 backgroundColor="#E9E6DA" borderVisible="true"
+									 chromeColor="#CBC5B2" close="onClose(event)" cornerRadius="12"
+									 creationComplete="init(event)"
+									 skinClass="jp.tp.schoolmanager.view.skin.CustomTitleWindowSkin"
+									 >
+	<customtitlewindow:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</customtitlewindow:layout>
+	<fx:Script>
+		<![CDATA[
+			import jp.tp.schoolmanager.SMFacade;
+			
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			protected function init(event:FlexEvent):void
+			{
+				SMFacade.getInstance().registerMediator(new StudentEditWindowMediator(this));
+			}
+			protected function nsformatter(value:Number):String
+			{
+				return nft.format(value);
+			}
+			protected function onClose(event:CloseEvent):void
+			{
+				PopUpManager.removePopUp(this);
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:NumberFormatter id="nft" fractionalDigits="1" trailingZeros="true"/>
+	</fx:Declarations>
+	<s:Form>
+		<s:layout>
+			<s:FormLayout gap="-16"/>
+		</s:layout>
+		<s:FormItem label="苗字">
+			<s:TextInput/>
+		</s:FormItem>
+		<s:FormItem label="名前">
+			<s:TextInput/>
+		</s:FormItem>
+		<s:FormItem width="100%" label="身長">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="bottom"/>
+			</s:layout>
+			<s:NumericStepper maximum="300" minimum="0.1" snapInterval="0.10" stepSize="0.10"
+							  textAlign="right" value="129.3" valueFormatFunction="nsformatter"/>
+			<s:Label text="cm"/>
+		</s:FormItem>
+		<s:FormItem label="容姿">
+			<s:NumericStepper maximum="100" minimum="0.1" snapInterval="0.1" stepSize="0.1"
+							  textAlign="right" value="50" valueFormatFunction="nsformatter"/>
+		</s:FormItem>
+		<s:FormItem label="社交性">
+			<s:NumericStepper maximum="100" minimum="0.1" snapInterval="0.1"
+							  stepSize="0.1" textAlign="right" value="50"
+							  valueFormatFunction="nsformatter"/>
+		</s:FormItem>
+		<s:FormItem label="財力" fontWeight="normal">
+			<s:layout>
+				<s:HorizontalLayout verticalAlign="bottom"/>
+			</s:layout>
+			<s:NumericStepper maximum="500000000" minimum="0" snapInterval="1000"
+							  stepSize="1000" textAlign="right" value="1000"/>
+			<s:Label text="円／月"/>
+		</s:FormItem>
+		<s:FormItem label="学力">
+			<s:NumericStepper maximum="100" minimum="0.1" snapInterval="0.1"
+							  stepSize="0.1" textAlign="right" value="50"
+							  valueFormatFunction="nsformatter"/>
+		</s:FormItem>
+	</s:Form>
+	<customtitlewindow:controlBarContent>
+		<s:Button label="登録"/>		
+	</customtitlewindow:controlBarContent>
+	<customtitlewindow:controlBarLayout>
+		<s:HorizontalLayout horizontalAlign="center"/>
+	</customtitlewindow:controlBarLayout>
+</customtitlewindow:CustomTitleWindow>

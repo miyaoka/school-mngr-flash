@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customtitlewindow:CustomTitleWindow xmlns:fx="http://ns.adobe.com/mxml/2009"
+									 xmlns:s="library://ns.adobe.com/flex/spark"
+									 xmlns:mx="library://ns.adobe.com/flex/mx"
+									 xmlns:customtitlewindow="net.flashdan.containers.customtitlewindow.*"
+									 xmlns:view="jp.tp.schoolmanager.view.*"
+									 width="400" height="500" backgroundColor="#4F7D5C"
+									 chromeColor="#94AF8C" color="#FFFFFF" cornerRadius="4"
+									 implements="net.flashdan.managers.window.IManagedWindow"
+									 skinClass="jp.tp.schoolmanager.view.skin.CustomTitleWindowSkin"
+									 title="{'生徒一覧' + (sortOption ? ' [' + sortOption + ']' : '')}"
+									 creationComplete="onInit(event)"
+									 close="onClose(event)">
+	<customtitlewindow:layout>
+		<s:VerticalLayout horizontalAlign="right"/>
+	</customtitlewindow:layout>
+	
+	
+	<fx:Script>
+		<![CDATA[
+			import jp.tp.schoolmanager.SMFacade;
+			
+			import mx.collections.ArrayList;
+			import mx.collections.IList;
+			import mx.events.CloseEvent;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import spark.components.gridClasses.GridColumn;
+			import spark.events.GridSortEvent;
+			
+			/*
+			Note that this window will be managed because it implements the IManagedWindow interface.
+			*/
+			[Bindable]public var ID:String;
+			
+			public static const ADD_NEW_STUDENT:String = "addNewStudent";
+			public static const EDIT_STUDENT:String = "editStudent";
+			public static const REMOVE_STUDENT:String = "removeStudent";
+			protected function onAddNewStudent(event:FlexEvent):void
+			{
+				dispatchEvent(new Event(ADD_NEW_STUDENT));				
+			}
+			protected function onEditStudent(event:FlexEvent):void
+			{
+				dispatchEvent(new Event(EDIT_STUDENT));
+			}
+			protected function onRemoveStudent(event:FlexEvent):void
+			{
+				dispatchEvent(new Event(REMOVE_STUDENT));				
+			}		
+			
+			protected function list_sortChangeHandler(event:GridSortEvent):void
+			{
+				var i:int = event.columnIndices[0] as int;
+				var col:GridColumn = (list.columns as IList).getItemAt(i) as GridColumn;
+				sortOption = col.headerText + " " + (col.sortDescending ? "降順" : "昇順");
+			}
+			
+			protected function onClose(event:CloseEvent):void
+			{
+				PopUpManager.removePopUp(this);
+			}
+			
+			protected function onInit(event:FlexEvent):void
+			{
+				SMFacade.getInstance().registerMediator(new StudentListWindowMediator(this));
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<fx:String id="sortOption"/>	
+	</fx:Declarations>
+	<s:HGroup>
+		<s:Button label="新規追加" buttonDown="onAddNewStudent(event)"/>
+		<s:Button label="編集" buttonDown="onEditStudent(event)" enabled="{list.selectedIndex != -1}"/>
+		<s:Button label="削除" buttonDown="onRemoveStudent(event)" enabled="{list.selectedIndex != -1}"/>
+	</s:HGroup>
+	<view:StudentListView id="list" width="100%" height="100%" sortChange="list_sortChangeHandler(event)"/>
+</customtitlewindow:CustomTitleWindow>

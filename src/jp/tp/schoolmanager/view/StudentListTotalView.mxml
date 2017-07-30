@@ -28,7 +28,7 @@
 		<!-- 非ビジュアルエレメント (サービス、値オブジェクトなど) をここに配置 -->
 		<s:ArrayCollection id="ac" />
 		<s:NumberFormatter id="nft" 
-						   fractionalDigits="1"/>
+						   fractionalDigits="1" trailingZeros="true"/>
 	</fx:Declarations>
 	<s:columns>
 		<s:ArrayList>
